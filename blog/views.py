@@ -6,5 +6,4 @@ def home(request):
 def sobre_nos(request):
     return render(request, 'blog/sobre.html')
 
-def paraguai(request):
-    return render(request, 'blog/paraguai.html')
+

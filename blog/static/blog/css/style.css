@@ -1,4 +1,15 @@
 body {
-    background-color: #f0f8ff;
+    background-color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+}
+
+.sobre {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }

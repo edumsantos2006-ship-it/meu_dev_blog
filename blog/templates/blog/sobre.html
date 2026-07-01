@@ -1,8 +1,19 @@
 {% extends 'blog/base.html' %}
 
+{% load static %}
+
+
+
 {% block content %}
 
-    <h3>Sobre o DevBlog</h3>
-    <p>Este DevBlog é o meu primeiro, espero que vocês gostem.</p>
+<div class="sobre">
+    <div>
+        <h3>Sobre o DevBlog</h3>
+        <p>Este DevBlog está sendo vendo por mim, com a orientação do meu professor.</p>
+        <p>Por eu estar fazendo apenas o básico no início, acredito que não fique tão bonito assim, mas com o decorrer das aulas vou melhorando.</p>
+    </div>
+
+    <img src="{% static 'blog/imagens/logo.png' %}" class="logo rounded shadow">
+</div>
  
 {% endblock %}
