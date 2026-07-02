@@ -13,16 +13,21 @@
 <body class="bg-light d-fleax flex-column min-vh-100">
     <header>
 
-        <nav class="navbar-expand-lg navbar-dark bg-dark">
+        <nav class=" navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'home' %}">🚀 DevBlog</a>
                 <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ns-auto">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home' %}">Início</a>
                         </li>
+                        {% for categoria in lista_categorias %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'categoria' categoria.id %}">{{categoria.nome}}</a>
+                            </li>
+                        {% endfor %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'sobre_nos' %}"> |Sobre</a>
+                            <a class="nav-link" href="{% url 'sobre_nos' %}">Sobre</a>
                         </li>
                     </ul>
                 </div>
