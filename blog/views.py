@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Artigo, Categoria
 
 
@@ -33,6 +33,13 @@ def categoria(request, id):
     }
 
     return render(request, 'blog/index.html', contexto)
-    
+
+def artigo_detalhe(request, id):
+    noticia = get_object_or_404(Artigo, id=id)
+
+    contexto = {
+        'artigo': noticia
+    }    
+    return render(request, 'blog/artigo_detalhe.html', contexto)
 
 

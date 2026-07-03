@@ -4,12 +4,13 @@
     <h2 class="mb-4">Últimas notícias</h2>
 
     {% for artigo in lista_artigos %}
-        <div class="card mb-3 shadow-sn">
+        <div class="card mb-3 shadow-sm">
             <div class="card-body">
-                <h3 class="card-title text-succss">{{artigo.titulo}}</h3>
+                <h3 class="card-title text-success">{{artigo.titulo}}</h3>
                 <h6 class="card-subtitle mb-2 text-muted">Categoria: {{artigo.categoria.nome}} | Autor: {{artigo.autor}}</h6>
-                <p class="card-text">{{artigo.conteudo}}</p>
-                <p class="card-text"><small class="text-muted">Publicado em: {{artigo.data_puplicacao}}</small></p>
+                <p class="card-text">{{artigo.conteudo|truncatechars:100}}</p>
+                <p class="card-text"><small class="text-muted">Publicado em: {{artigo.data_publicacao}}</small></p>
+                <a href="{% url 'artigo_detalhe' artigo.id %}" class="btn btn-success btn-sm">Ler mais...</a>
             </div>
         </div>
     
