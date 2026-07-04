@@ -15,7 +15,7 @@ class Artigo(models.Model):
     
     conteudo = models.TextField()
 
-   
+    
     data_publicacao = models.DateTimeField(auto_now_add=True)
 
     
