@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Categoria, Artigo
+from .models import Categoria, Artigo, MensagemContato
 
 admin.site.register(Categoria)
+
+
 admin.site.register(Artigo)
 
 class ArtigoAdmin(admin.ModelAdmin):
@@ -10,3 +12,6 @@ class ArtigoAdmin(admin.ModelAdmin):
     search_fields = ("titulo", "conteudo")
 
     list_filter = ("categoria", "data_publicacao")
+
+
+admin.site.register(MensagemContato)
