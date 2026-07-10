@@ -13,6 +13,7 @@ from django.core.paginator import Paginator
 def home(request):
     
     noticias = Artigo.objects.all().order_by('-id')
+    categorias = Categoria.objects.all()
 
     busca = request.GET.get('q')
     if busca:
@@ -24,7 +25,8 @@ def home(request):
     page_obj = paginator.get_page(numero_da_pagina)
 
     contexto = {
-        'lista_artigos' : page_obj
+        'lista_artigos' : page_obj,
+        'lista_categorias' : categorias
         
     }
     return render(request, 'blog/index.html', contexto)
