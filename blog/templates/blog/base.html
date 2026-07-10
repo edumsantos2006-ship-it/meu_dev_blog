@@ -24,6 +24,13 @@
 
                 <!--Menu-->
                 <div class="collapse navbar-collapse" id="navbarNav">
+                    <!--formulario barra de busca-->
+                    <form class="d-flex" methods="GET" action="{% url 'home' %}">
+                        <!--o input do 'q'-->
+                        <input class="form-control me-2" type="search" name="q">
+                        <button class="btn-btn-success" type="submit">Buscar</button>
+                    </form>
+
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home' %}">Início</a>

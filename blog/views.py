@@ -6,18 +6,26 @@ from rest_framework.response import Response
 from .serializers import ArtigoSerializers, CategoriaSerializer
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
+from django.core.paginator import Paginator
 
 
 
 def home(request):
     
-    noticias = Artigo.objects.all()
-    categorias = Categoria.objects.all()
+    noticias = Artigo.objects.all().order_by('-id')
 
+    busca = request.GET.get('q')
+    if busca:
+        noticias = noticias.filter(titulo__icontains=busca)
+
+    paginator = Paginator(noticias, 5)
+
+    numero_da_pagina = request.GET.get('page')
+    page_obj = paginator.get_page(numero_da_pagina)
 
     contexto = {
-        'lista_artigos' : noticias,
-        'lista_categorias' : categorias
+        'lista_artigos' : page_obj
+        
     }
     return render(request, 'blog/index.html', contexto)
 
